@@ -16,12 +16,13 @@
                 //console.log(images);
                 newImage = document.createElement('img'); //create new image element for the container
                 $(newImage).attr('src', file).attr('alt', 'file').addClass('thumb'); //give the image tag the src and decrease its width to 20%
-                $("#images").append(newImage); //add the element to the DOM
+                
                 
                 canvasImage = document.createElement('img'); //create image for the canvas
                 $(canvasImage).attr('src', file).attr('alt', 'Canvas File'); //give it src and alt attrs
-            
                 
+            
+                $("#images").append(newImage); //add the element to the DOM
                 
                 $(canvas).drawImage({ //draw the image in its original size
                    source: canvasImage,
@@ -29,4 +30,16 @@
                     fromCenter: false
                 });
             });
+            
+            $(document).on('click', '.container img', function(e){
+                $(canvas).clearCanvas();
+                $(canvas).drawImage({
+                   source: $(this).attr('src'),
+                    x: 0, y: 0,
+                    fromCenter: false
+                });
+                e.preventDefault();
+            });
+          
         });
+
