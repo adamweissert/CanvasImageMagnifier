@@ -6,11 +6,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Adam Weissert</h1>
-    <canvas id="imageCanvas" width="1000" height="600">
-    </canvas>
-    <br>
-    <input type="file" id="imageUpload" value="Upload Image">
+    <div class='canvasElements'>
+        <h1>Adam Weissert</h1>
+        <canvas id="imageCanvas" width="1000" height="600"></canvas>
+        <br>
+        <input type="file" id="imageUpload" class="upload">
+        <br>
+        <br>
+        <div>
+            Directions:
+                <ul>
+                    <li>Choose an image</li>
+                    <li>Click to zoom/Shift+Click to zoom out</li>
+                    <li>Click a thumbnail to preview that image</li>
+                </ul>
+        </div>
+    </div>
+    <h1 class="gallery">Gallery</h1>
     <div class="container" id="images"> 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -1,9 +1,44 @@
+body{
+	font-family: Verdana, Geneva, sans-serif;
+}
+.canvasElements{
+	float: left;
+}
+.container{
+	float: right;
+	width: 35%;
+	height: 625px;
+	overflow: auto;
+	margin-top: 5px;
+}
 .thumb{
-    margin: 20px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
     float: left;
-    width: 20%;
+    width: 90%;
     border: 1px solid #000;
 }
 .thumb:hover{
     opacity: .8;
+    box-shadow: 5px 5px 10px #1e1e1e;
+}
+.upload::-webkit-file-upload-button{
+	display: none;
+}
+.upload::before{
+	content: 'Choose an Image';
+	display: inline-block;
+	background-color: #c1c1c1;
+	border: 1px solid #000;
+	border-radius: 3px;
+	padding: 5px 8px;
+	outline: none;
+	cursor: pointer;
+	font-size: 14pt;
+}
+.upload:hover::before{
+	border-color: #000;
+}
+.gallery{
+	font-weight: bold;
+	text-align: center;
 }
