@@ -10,7 +10,10 @@
         <h1>Adam Weissert</h1>
         <canvas id="imageCanvas" width="1000" height="600"></canvas>
         <br>
-        <input type="file" id="imageUpload" class="upload">
+        <form method="POST" action="upload.php" id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="imageUpload" class="upload" name="imageUpload">
+            <input type="submit" value="Upload Image" name="submit" class="button">
+        </form>
         <br>
         <br>
         <div>

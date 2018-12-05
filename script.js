@@ -61,17 +61,17 @@ $(document).ready(function(){
     canvas = $("#imageCanvas");
 
 
-    $("#imageUpload").on('change', function(event){ //if the user uploads an image
+    $("#uploadForm").submit(function(event){ //if the user uploads an image
 
         if($(this).get(0).files.length == 0){ 
             event.preventDefault(); //if a file is not loaded, stop the event
         }
         else{
             $(canvas).clearCanvas(); //clear canvas 
-                        
+            $.ajax     
             //look up dynamic canvas element
             file = $("#imageUpload").val().split('\\').pop(); //grab the value of the image (removes the default 'fakepath' that Chrome adds)
-            fileNewPath = "./testImages/" + file;
+            fileNewPath = "./images/" + file;
 
             newImage = new Image(); //create new image element for the container
             $(newImage).attr('src', fileNewPath).attr('alt', 'file').addClass('thumb'); //give the image tag the src and decrease its width to 20%
