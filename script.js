@@ -61,7 +61,7 @@ $(document).ready(function(){
     canvas = $("#imageCanvas");
 
 
-    $("#uploadForm").submit(function(event){ //if the user uploads an image
+     $("#uploadForm").submit(function(event){ //if the user uploads an image
 
         if($(this).get(0).files.length == 0){ 
             event.preventDefault(); //if a file is not loaded, stop the event
@@ -108,7 +108,7 @@ $(document).ready(function(){
                 mouseX = Math.round(event.pageX - offset.left); //change the x value of the mouse to where it currently is in conjunction to the canvas
                 mouseY = Math.round(event.pageY - offset.top);
 
-                setInterval(drawZoomImage, 30); //call this function to draw the image at the point the mouse is over
+                drawZoomImage(); //call this function to draw the image at the point the mouse is over
             });
         }
     });
