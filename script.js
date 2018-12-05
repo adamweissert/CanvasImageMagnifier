@@ -11,26 +11,6 @@ var zoom = 100; //zoom circle radius
 var zoomAmt = 2; //initial zoom amount
 var canvasImage, newImage;
           
-document.addEventListener('click', function(e){ //this function works for zooming in
-    if (e.shiftKey){ //if the user clicks and holds either shift key
-        if(zoomAmt == 0){ //if the zoom amount is 0, prevent the event from triggering
-            e.preventDefault(); 
-        }
-        else{//otherwise, decrease the zoom amount by 1
-            zoomAmt -= 1;
-        }
-    }
-    else{ //if the user only clicks
-        if(zoomAmt <= 7){ //and the user has not clicked more than 5 times
-            zoomAmt += 1; //add one to the zoom amount
-        }
-        else{
-            e.preventDefault(); //otherwise stop the event
-        }
-    }
-
-}, false);
-
 
 function drawZoomImage(){
     canvas = document.getElementById('imageCanvas');
@@ -101,14 +81,36 @@ $(document).ready(function(){
                 });
             });
             
-
+            $("body").on('click', function(e){ //this function works for zooming in
+                if (e.shiftKey){ //if the user clicks and holds either shift key
+                    if(zoomAmt == 0){ //if the zoom amount is 0, prevent the event from triggering
+                        console.log(zoomAmt);
+                        e.preventDefault(); 
+                    }
+                    else{//otherwise, decrease the zoom amount by 1
+                        zoomAmt -= 1;
+                        console.log(zoomAmt);
+                    }
+                }
+                else{ //if the user only clicks
+                    if(zoomAmt <= 7){ //and the user has not clicked more than 5 times
+                        zoomAmt += 1; //add one to the zoom amount
+                        console.log(zoomAmt);
+                    }
+                    else{
+                        e.preventDefault(); //otherwise stop the event
+                        console.log(zoomAmt);
+                    }
+                }
+            });
+            
             $(canvas).on('mousemove', function(event) { //on mouseover of the canvas image
                 var offset = $(canvas).offset(); //catch the coordinates of the canvas
 
                 mouseX = Math.round(event.pageX - offset.left); //change the x value of the mouse to where it currently is in conjunction to the canvas
                 mouseY = Math.round(event.pageY - offset.top);
 
-                drawZoomImage(); //call this function to draw the image at the point the mouse is over
+                setInterval(drawZoomImage(), 100); //call this function to draw the image at the point the mouse is over
             });
         }
     });
